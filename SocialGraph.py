@@ -9,27 +9,27 @@ from datetime import timedelta
 
 while True:
     try:
-        #username = input("Please enter a Github username: ")
-    #    password = getpass.getpass() #receive the password securely without echoeing back to terminal
-        g = Github("saphilli","aggrav4247")
-    #    authen_user = g.get_user(username)
+        username = input("Please enter a Github username: ")
+        password = getpass.getpass() #receive the password securely without echoeing back to terminal
+        g = Github(username,password)
+        authen_user = g.get_user(username)
     except Exception:
         print("Invalid credentials")
         continue;
     else:
-        #print('Logged in as '+username)
+        print('Logged in as '+username)
         break;
 
 
 
-#user = input("Enter a Github username to view their stats: ")
+user = input("Enter a Github username to view their stats: ")
 
 #get a repository
-#print("Below is a list of the user's repositorys")
-#for repo in g.get_user("YasirZardari").get_repos():
-#    print(repo.name )
+print("Below is a list of the user's repositorys")
+for repo in g.get_user("YasirZardari").get_repos():
+    print(repo.name )
 
-#repo_name = input("Please enter one of the repository names listed above: ")
+repo_name = input("Please enter one of the repository names listed above: ")
 repo = g.get_user("YasirZardari").get_repo("Speech-Therapy-App")
 
 commits = repo.get_commits() #(reverse the list of commits to get first one)
